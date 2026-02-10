@@ -147,7 +147,7 @@ export const useNPCStore = create<NPCStore>()(
                     dialogueStyle: 'Casual',
                     apiCalls: 1234,
                     createdAt: new Date('2025-01-15'),
-                    apiKey: 'npc_abc123xyz789',
+                    apiKey: 'npc_demo_xxxxxxxx',
                 },
                 {
                     id: '2',
