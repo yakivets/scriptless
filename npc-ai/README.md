@@ -129,9 +129,13 @@ npc-ai/
 
 ### Vercel (Recommended)
 
-1. Push your code to GitHub
-2. Import your repository on [Vercel](https://vercel.com)
-3. Deploy with zero configuration
+This app lives in the **`npc-ai`** subfolder of the repo. You must set the **Root Directory** in Vercel or every route will return 404.
+
+1. Push your code to GitHub and import the repository on [Vercel](https://vercel.com).
+2. **Set Root Directory**: In your Vercel project, go to **Settings → General**. Under **Root Directory**, click **Edit**, enter `npc-ai`, and save.
+3. Trigger a new deployment (e.g. push a commit or **Redeploy** in the Deployments tab).
+
+After that, Vercel will build and serve the Next.js app correctly.
 
 ```bash
 npm run build
