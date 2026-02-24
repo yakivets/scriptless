@@ -1,13 +1,13 @@
-# NPC.ai - AI-Powered NPC Marketplace
+# Scriptless - AI-Powered NPC Marketplace
 
 > Build Intelligent NPCs in Minutes. No coding required.
 
-![NPC.ai](https://img.shields.io/badge/NPC.ai-AI%20NPCs-blueviolet?style=for-the-badge)
+![Scriptless](https://img.shields.io/badge/Scriptless-AI%20NPCs-blueviolet?style=for-the-badge)
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38B2AC?style=for-the-badge&logo=tailwind-css)
 
-NPC.ai is a modern SaaS platform for game developers to create AI-powered NPCs with dynamic conversations. Build unique characters with customizable personalities, integrate them into Unity, Unreal Engine, or any game using our REST API.
+Scriptless is a modern SaaS platform for game developers to create AI-powered NPCs with dynamic conversations. Build unique characters with customizable personalities, integrate them into Unity, Unreal Engine, or any game using our REST API.
 
 ## ✨ Features
 
@@ -167,7 +167,7 @@ Create a `.env.local` file for local development:
 
 ```env
 # API Configuration (for future backend integration)
-NEXT_PUBLIC_API_URL=https://api.npc.ai
+NEXT_PUBLIC_API_URL=https://api.scriptless.ai
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 
 # Analytics (optional)
@@ -207,4 +207,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Made with ❤️ for game developers everywhere
 
-**[Live Demo](https://npc-ai.vercel.app)** | **[Documentation](https://docs.npc.ai)** | **[Discord](https://discord.gg/npcai)**
+**[Live Demo](https://scriptless.ai)** | **[Documentation](https://docs.scriptless.ai)** | **[Discord](https://discord.gg/scriptless)**

@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Bot, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useState } from 'react';
@@ -33,11 +34,11 @@ export function Navbar() {
                         <motion.div
                             whileHover={{ rotate: 360 }}
                             transition={{ duration: 0.5 }}
-                            className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center"
+                            className="w-10 h-10 rounded-xl overflow-hidden"
                         >
-                            <Bot className="w-6 h-6 text-white" />
+                            <Image src="/logo.png" alt="Scriptless" width={40} height={40} className="w-full h-full object-cover" />
                         </motion.div>
-                        <span className="text-xl font-bold gradient-text">NPC.ai</span>
+                        <span className="text-xl font-bold gradient-text">Scriptless</span>
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -48,8 +49,8 @@ export function Navbar() {
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${pathname === link.href
-                                            ? 'text-cyan-400 bg-cyan-400/10'
-                                            : 'text-slate-300 hover:text-white hover:bg-white/5'
+                                        ? 'text-cyan-400 bg-cyan-400/10'
+                                        : 'text-slate-300 hover:text-white hover:bg-white/5'
                                         }`}
                                 >
                                     {link.label}
@@ -83,8 +84,8 @@ export function Navbar() {
                                         href={link.href}
                                         onClick={() => setIsOpen(false)}
                                         className={`px-4 py-3 rounded-lg text-lg font-medium transition-colors ${pathname === link.href
-                                                ? 'text-cyan-400 bg-cyan-400/10'
-                                                : 'text-slate-300 hover:text-white hover:bg-white/5'
+                                            ? 'text-cyan-400 bg-cyan-400/10'
+                                            : 'text-slate-300 hover:text-white hover:bg-white/5'
                                             }`}
                                     >
                                         {link.label}

@@ -40,7 +40,7 @@ const pricingTiers: PricingTier[] = [
             { name: '3 NPCs maximum', included: true },
             { name: 'Basic personality traits', included: true },
             { name: 'Community support', included: true },
-            { name: 'Watermark in dialogue', included: true, tooltip: 'A small NPC.ai attribution appears in responses' },
+            { name: 'Watermark in dialogue', included: true, tooltip: 'A small Scriptless attribution appears in responses' },
             { name: 'Advanced personalities', included: false },
             { name: 'Custom voice styles', included: false },
             { name: 'Priority support', included: false },
@@ -176,8 +176,8 @@ export default function PricingPage() {
                             )}
                             <Card
                                 className={`h-full border-white/10 ${tier.popular
-                                        ? 'glass-card glow-purple scale-105 relative z-10'
-                                        : 'bg-white/5'
+                                    ? 'glass-card glow-purple scale-105 relative z-10'
+                                    : 'bg-white/5'
                                     }`}
                             >
                                 <CardHeader className="text-center pb-4">
@@ -221,8 +221,8 @@ export default function PricingPage() {
                                     <Link href={tier.name === 'Studio' ? '/contact' : '/builder'}>
                                         <Button
                                             className={`w-full ${tier.popular
-                                                    ? 'gradient-button text-white border-0'
-                                                    : 'bg-white/10 hover:bg-white/20 border-0'
+                                                ? 'gradient-button text-white border-0'
+                                                : 'bg-white/10 hover:bg-white/20 border-0'
                                                 }`}
                                         >
                                             {tier.cta}

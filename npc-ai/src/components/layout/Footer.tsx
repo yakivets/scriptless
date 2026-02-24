@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { Bot, Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import Image from 'next/image';
+import { Github, Instagram, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const footerLinks = {
@@ -31,10 +32,10 @@ const footerLinks = {
 };
 
 const socialLinks = [
-    { icon: Twitter, href: 'https://twitter.com/npcai', label: 'Twitter' },
-    { icon: Github, href: 'https://github.com/npcai', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/company/npcai', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:hello@npc.ai', label: 'Email' },
+    { icon: Instagram, href: 'https://www.instagram.com/yakivetsnikita', label: 'Instagram' },
+    { icon: Github, href: 'https://github.com/yakivets', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/mykyta-yakivets/', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:hello@scriptless.ai', label: 'Email' },
 ];
 
 export function Footer() {
@@ -45,10 +46,10 @@ export function Footer() {
                     {/* Brand Column */}
                     <div className="col-span-2">
                         <Link href="/" className="flex items-center gap-2 mb-4">
-                            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center">
-                                <Bot className="w-6 h-6 text-white" />
+                            <div className="w-10 h-10 rounded-xl overflow-hidden">
+                                <Image src="/logo.png" alt="Scriptless" width={40} height={40} className="w-full h-full object-cover" />
                             </div>
-                            <span className="text-xl font-bold gradient-text">NPC.ai</span>
+                            <span className="text-xl font-bold gradient-text">Scriptless</span>
                         </Link>
                         <p className="text-slate-400 text-sm mb-6 max-w-xs">
                             Build intelligent NPCs for your games with AI-powered conversations. No coding required.
@@ -139,7 +140,7 @@ export function Footer() {
                 {/* Bottom Section */}
                 <div className="border-t border-white/5 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <p className="text-slate-500 text-sm">
-                        © 2026 NPC.ai. All rights reserved.
+                        © 2026 Scriptless. All rights reserved.
                     </p>
                     <p className="text-slate-500 text-sm">
                         Made with ❤️ for game developers everywhere

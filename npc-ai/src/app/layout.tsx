@@ -17,19 +17,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NPC.ai - Build Intelligent NPCs in Minutes",
+  title: "Scriptless - Build Intelligent NPCs in Minutes",
   description: "AI-powered NPC characters for Unity, Unreal, and more. No coding required. Create dynamic conversations with intelligent game characters.",
-  keywords: ["NPC", "AI", "game development", "Unity", "Unreal Engine", "game characters", "AI dialogue"],
-  authors: [{ name: "NPC.ai Team" }],
+  keywords: ["NPC", "AI", "game development", "Unity", "Unreal Engine", "game characters", "AI dialogue", "Scriptless"],
+  authors: [{ name: "Scriptless Team" }],
   openGraph: {
-    title: "NPC.ai - Build Intelligent NPCs in Minutes",
+    title: "Scriptless - Build Intelligent NPCs in Minutes",
     description: "AI-powered NPC characters for Unity, Unreal, and more. No coding required.",
     type: "website",
-    url: "https://npc.ai",
+    url: "https://scriptless.ai",
   },
   twitter: {
     card: "summary_large_image",
-    title: "NPC.ai - Build Intelligent NPCs in Minutes",
+    title: "Scriptless - Build Intelligent NPCs in Minutes",
     description: "AI-powered NPC characters for Unity, Unreal, and more. No coding required.",
   },
 };

@@ -11,7 +11,7 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 
 const codeSnippets = {
-    unity: `using NPCai;
+    unity: `using Scriptless;
 using UnityEngine;
 
 public class DialogueController : MonoBehaviour
@@ -58,7 +58,7 @@ public class DialogueController : MonoBehaviour
 #pragma once
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "NPCaiSDK.h"
+#include "ScriptlessSDK.h"
 #include "NPCDialogueComponent.generated.h"
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
@@ -80,7 +80,7 @@ public:
     void OnResponseReceived(const FNPCResponse& Response);
 
 private:
-    TSharedPtr<FNPCaiClient> Client;
+    TSharedPtr<FScriptlessClient> Client;
 
 protected:
     virtual void BeginPlay() override;
@@ -92,7 +92,7 @@ protected:
 void UNPCDialogueComponent::BeginPlay()
 {
     Super::BeginPlay();
-    Client = MakeShared<FNPCaiClient>(APIKey);
+    Client = MakeShared<FScriptlessClient>(APIKey);
 }
 
 void UNPCDialogueComponent::SendMessage(const FString& PlayerInput)
@@ -105,7 +105,7 @@ void UNPCDialogueComponent::SendMessage(const FString& PlayerInput)
     ));
 }`,
     rest: `# Using cURL
-curl -X POST "https://api.npc.ai/v1/chat" \\
+curl -X POST "https://api.scriptless.ai/v1/chat" \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -129,9 +129,9 @@ curl -X POST "https://api.npc.ai/v1/chat" \\
 
 
 # Using Python
-import npcai
+import scriptless
 
-client = npcai.Client("YOUR_API_KEY")
+client = scriptless.Client("YOUR_API_KEY")
 
 response = client.chat(
     npc_id="uncle-marco",
@@ -146,7 +146,7 @@ print(response.content)
 
 
 # Using JavaScript/Node.js
-import { NPCClient } from 'npcai';
+import { NPCClient } from 'scriptless';
 
 const client = new NPCClient('YOUR_API_KEY');
 
@@ -166,7 +166,7 @@ const quickstartSteps = [
     {
         step: 1,
         title: 'Create an account',
-        description: 'Sign up for a free NPC.ai account to get your API key.',
+        description: 'Sign up for a free Scriptless account to get your API key.',
     },
     {
         step: 2,
@@ -176,7 +176,7 @@ const quickstartSteps = [
     {
         step: 3,
         title: 'Install the SDK',
-        description: 'Add the NPC.ai SDK to your Unity or Unreal project, or use the REST API directly.',
+        description: 'Add the Scriptless SDK to your Unity or Unreal project, or use the REST API directly.',
     },
     {
         step: 4,
@@ -244,7 +244,7 @@ export default function DocsPage() {
                         Documentation
                     </Badge>
                     <h1 className="text-4xl font-bold mb-4">
-                        Get started with <span className="gradient-text">NPC.ai</span>
+                        Get started with <span className="gradient-text">Scriptless</span>
                     </h1>
                     <p className="text-slate-400 text-lg max-w-2xl">
                         Everything you need to integrate intelligent NPCs into your game. Choose your platform and follow our step-by-step guides.
@@ -351,7 +351,7 @@ export default function DocsPage() {
                                     </CardHeader>
                                     <CardContent>
                                         <code className="text-sm text-cyan-400 bg-white/5 px-2 py-1 rounded">
-                                            com.npcai.sdk
+                                            com.scriptless.sdk
                                         </code>
                                         <p className="text-sm text-slate-400 mt-3">
                                             Add via Package Manager using the git URL.
@@ -367,7 +367,7 @@ export default function DocsPage() {
                                     </CardHeader>
                                     <CardContent>
                                         <code className="text-sm text-cyan-400 bg-white/5 px-2 py-1 rounded">
-                                            NPCaiPlugin
+                                            ScriptlessPlugin
                                         </code>
                                         <p className="text-sm text-slate-400 mt-3">
                                             Download from Marketplace or build from source.
@@ -383,7 +383,7 @@ export default function DocsPage() {
                                     </CardHeader>
                                     <CardContent>
                                         <code className="text-sm text-cyan-400 bg-white/5 px-2 py-1 rounded">
-                                            api.npc.ai/v1
+                                            api.scriptless.ai/v1
                                         </code>
                                         <p className="text-sm text-slate-400 mt-3">
                                             Use with any language or platform.

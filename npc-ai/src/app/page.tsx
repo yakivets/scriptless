@@ -81,7 +81,7 @@ const pricingTiers = [
 
 const stats = [
     { value: '10M+', label: 'API Calls Served' },
-    { value: '500+', label: 'Games Using NPC.ai' },
+    { value: '500+', label: 'Games Using Scriptless' },
     { value: '99.9%', label: 'Uptime' },
     { value: '<50ms', label: 'Avg Response Time' },
 ];
@@ -327,7 +327,7 @@ export default function Home() {
                             <iframe
                                 className="w-full h-full"
                                 src="https://www.youtube.com/embed/VJHO_udwu6c"
-                                title="NPC AI Demo"
+                                title="Scriptless Demo"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowFullScreen
                             />
@@ -454,7 +454,7 @@ export default function Home() {
                                 </div>
                                 <pre className="p-4 overflow-x-auto text-sm">
                                     <code className="text-slate-300">
-                                        {`using NPCai;
+                                        {`using Scriptless;
 
 public class DialogueController : MonoBehaviour
 {
@@ -463,7 +463,7 @@ public class DialogueController : MonoBehaviour
     void Start()
     {
         // Initialize with your API key
-        client = new NPCClient("npc_abc123xyz");
+        client = new NPCClient("sl_abc123xyz");
     }
 
     public async void OnPlayerInteract(string input)
@@ -606,7 +606,7 @@ public class DialogueController : MonoBehaviour
                                 Ready to bring your NPCs to life?
                             </h2>
                             <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
-                                Join hundreds of game developers who are creating memorable gaming experiences with NPC.ai.
+                                Join hundreds of game developers who are creating memorable gaming experiences with Scriptless.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Link href="/builder">
