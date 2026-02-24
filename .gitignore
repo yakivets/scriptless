@@ -1,0 +1,10 @@
+# Dependencies and build outputs
+npc-ai/node_modules/
+npc-ai/.next/
+npc-ai/out/
+npc-ai/.vercel/
+
+# Env and debug
+.env
+.env.*
+*.log
