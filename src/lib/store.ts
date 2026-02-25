@@ -12,6 +12,7 @@ export interface NPC {
     intelligence: number;
     humor: number;
     dialogueStyle: DialogueStyle;
+    gameKnowledge?: string;
     apiCalls: number;
     createdAt: Date;
     apiKey?: string;
@@ -24,6 +25,7 @@ export interface NPCConfig {
     intelligence: number;
     humor: number;
     dialogueStyle: DialogueStyle;
+    gameKnowledge: string;
 }
 
 export interface Message {
@@ -58,6 +60,7 @@ const defaultConfig: NPCConfig = {
     intelligence: 65,
     humor: 80,
     dialogueStyle: 'Casual',
+    gameKnowledge: '',
 };
 
 // Sample NPC responses based on configuration
@@ -145,6 +148,7 @@ export const useNPCStore = create<NPCStore>()(
                     intelligence: 65,
                     humor: 80,
                     dialogueStyle: 'Casual',
+                    gameKnowledge: '',
                     apiCalls: 1234,
                     createdAt: new Date('2025-01-15'),
                     apiKey: 'npc_demo_xxxxxxxx',
@@ -157,6 +161,7 @@ export const useNPCStore = create<NPCStore>()(
                     intelligence: 90,
                     humor: 30,
                     dialogueStyle: 'Formal',
+                    gameKnowledge: '',
                     apiCalls: 567,
                     createdAt: new Date('2025-02-01'),
                 },
@@ -168,6 +173,7 @@ export const useNPCStore = create<NPCStore>()(
                     intelligence: 45,
                     humor: 20,
                     dialogueStyle: 'Casual',
+                    gameKnowledge: '',
                     apiCalls: 890,
                     createdAt: new Date('2025-02-05'),
                 },

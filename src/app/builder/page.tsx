@@ -233,6 +233,24 @@ export default function BuilderPage() {
 
                                 <Separator className="bg-white/10" />
 
+                                {/* Game knowledge */}
+                                <div className="space-y-2">
+                                    <Label htmlFor="game-knowledge">What this NPC should know about the game</Label>
+                                    <textarea
+                                        id="game-knowledge"
+                                        placeholder="World lore, quests, locations, or anything this NPC should know when responding…"
+                                        value={currentConfig.gameKnowledge}
+                                        onChange={(e) => setCurrentConfig({ gameKnowledge: e.target.value })}
+                                        rows={4}
+                                        className="w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-200 placeholder:text-slate-500 focus:border-cyan-500/50 focus:outline-none focus:ring-1 focus:ring-cyan-500/30 resize-y min-h-[80px]"
+                                    />
+                                    <p className="text-xs text-slate-500">
+                                        This info is used when the NPC responds. The API key is for this character including this knowledge.
+                                    </p>
+                                </div>
+
+                                <Separator className="bg-white/10" />
+
                                 {/* Action Buttons */}
                                 <div className="space-y-3">
                                     <Button

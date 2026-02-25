@@ -162,6 +162,71 @@ const response = await client.chat({
 console.log(response.content);`,
 };
 
+const unityPasteCode = `// Paste this into a C# script in Unity. Set BaseUrl and ApiKey (from the NPC Builder),
+// then call SendMessage from your NPC/interaction logic and use the returned content/emotion in your game.
+
+using System;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.Networking;
+
+[Serializable]
+public class NPCChatResponse
+{
+    public string id;
+    public string npc_id;
+    public string content;
+    public string emotion;
+    public string action;
+    public int tokens_used;
+}
+
+public class ScriptlessNPCClient : MonoBehaviour
+{
+    [Tooltip("API base URL, e.g. https://your-app.vercel.app/api/v1")]
+    public string baseUrl = "https://your-app.vercel.app/api/v1";
+
+    [Tooltip("API key from the NPC Builder")]
+    public string apiKey = "YOUR_API_KEY";
+
+    public void SendMessage(string npcId, string message, Action<NPCChatResponse> onSuccess, Action<string> onError)
+    {
+        if (string.IsNullOrEmpty(baseUrl) || string.IsNullOrEmpty(apiKey))
+        {
+            onError?.Invoke("BaseUrl and ApiKey must be set.");
+            return;
+        }
+        StartCoroutine(SendMessageCoroutine(npcId, message, onSuccess, onError));
+    }
+
+    private IEnumerator SendMessageCoroutine(string npcId, string message, Action<NPCChatResponse> onSuccess, Action<string> onError)
+    {
+        string url = baseUrl.TrimEnd('/') + "/chat";
+        string body = JsonUtility.ToJson(new ChatRequest { npc_id = npcId, message = message });
+        using (UnityWebRequest req = new UnityWebRequest(url, "POST"))
+        {
+            req.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(body));
+            req.downloadHandler = new DownloadHandlerBuffer();
+            req.SetRequestHeader("Content-Type", "application/json");
+            req.SetRequestHeader("Authorization", "Bearer " + apiKey);
+            yield return req.SendWebRequest();
+            if (req.result != UnityWebRequest.Result.Success)
+            {
+                onError?.Invoke(req.error + (req.downloadHandler?.text ?? ""));
+                yield break;
+            }
+            try
+            {
+                NPCChatResponse response = JsonUtility.FromJson<NPCChatResponse>(req.downloadHandler.text);
+                onSuccess?.Invoke(response);
+            }
+            catch (Exception e) { onError?.Invoke("Parse error: " + e.Message); }
+        }
+    }
+
+    [Serializable] private struct ChatRequest { public string npc_id; public string message; }
+}`;
+
 const quickstartSteps = [
     {
         step: 1,
@@ -275,6 +340,9 @@ export default function DocsPage() {
                                 </a>
                                 <a href="#code-examples" className="block text-sm text-slate-400 hover:text-cyan-400 transition-colors">
                                     Code Examples
+                                </a>
+                                <a href="#use-in-unity" className="block text-sm text-slate-400 hover:text-cyan-400 transition-colors">
+                                    Use in Unity
                                 </a>
                                 <a href="#api-reference" className="block text-sm text-slate-400 hover:text-cyan-400 transition-colors">
                                     API Reference
@@ -424,6 +492,20 @@ export default function DocsPage() {
                                     <CodeBlock code={codeSnippets.rest} language="REST API - Multiple Languages" />
                                 </TabsContent>
                             </Tabs>
+                        </section>
+
+                        {/* Use in Unity */}
+                        <section id="use-in-unity">
+                            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                                <Box className="w-6 h-6 text-cyan-400" />
+                                Use in Unity
+                            </h2>
+                            <p className="text-slate-400 mb-4">
+                                This app provides a mock API at <code className="text-cyan-400 bg-white/5 px-1.5 py-0.5 rounded">POST /api/v1/chat</code> when deployed.
+                                In the <strong>NPC Builder</strong> you define the character and <strong>what they should know about the game</strong>, then <strong>Generate API Key</strong>.
+                                Paste the code below into Unity, set <strong>Base URL</strong> to your deployed app (e.g. <code className="text-cyan-400 bg-white/5 px-1.5 py-0.5 rounded">https://your-app.vercel.app/api/v1</code>) and <strong>API key</strong> from the Builder, then call the client from your NPC logic and use <code className="text-cyan-400 bg-white/5 px-1.5 py-0.5 rounded">content</code> / <code className="text-cyan-400 bg-white/5 px-1.5 py-0.5 rounded">emotion</code> however you like (no chat UI specified).
+                            </p>
+                            <CodeBlock code={unityPasteCode} language="C# - Paste into Unity" />
                         </section>
 
                         {/* API Reference Preview */}
